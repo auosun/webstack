@@ -3,11 +3,7 @@ from django.contrib import admin
 from .models import Menu, Website
 
 
-# Register your models here.
-
-
 class MenuAdmin(admin.ModelAdmin):
-    # ...
     list_display = ('name', 'icon', 'weight')
     list_editable = ['icon', 'weight']
 

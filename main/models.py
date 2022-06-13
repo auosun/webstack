@@ -5,7 +5,7 @@ from base.model import BaseModel
 
 class Menu(BaseModel):
     class Meta:
-        db_table = 'menu'
+        db_table = 'webstack_menu'
         verbose_name = '分组'
         verbose_name_plural = verbose_name
 
@@ -18,9 +18,19 @@ class Menu(BaseModel):
         return self.name
 
 
+class Environment(BaseModel):
+    class Meta:
+        db_table = 'webstack_env'
+        verbose_name = '环境'
+        verbose_name_plural = verbose_name
+
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255, verbose_name="环境名")
+
+
 class Website(BaseModel):
     class Meta:
-        db_table = 'website'
+        db_table = 'webstack_website'
         verbose_name = '网站'
         verbose_name_plural = verbose_name
 
@@ -36,3 +46,13 @@ class Website(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class EnvWebsite(BaseModel):
+    class Meta:
+        db_table = 'webstack_env_website'
+
+    id = models.AutoField(primary_key=True)
+    env_id = models.ForeignKey(Environment, on_delete=models.CASCADE)
+    site_id = models.ForeignKey(Website, on_delete=models.CASCADE)
+    url = models.URLField(verbose_name='网站链接')

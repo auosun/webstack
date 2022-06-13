@@ -1,6 +1,13 @@
 from django.shortcuts import render
+from rest_framework import viewsets
 
 from main.models import Menu, Website
+from main.serializers import WebSiteSerializer
+
+
+class WebSiteView(viewsets.ReadOnlyModelViewSet):
+    queryset = Website.objects.all()
+    serializer_class = WebSiteSerializer
 
 
 def index_view(request):

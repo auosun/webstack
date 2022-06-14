@@ -53,6 +53,6 @@ class EnvWebsite(BaseModel):
         db_table = 'webstack_env_website'
 
     id = models.AutoField(primary_key=True)
-    env_id = models.ForeignKey(Environment, on_delete=models.CASCADE)
-    site_id = models.ForeignKey(Website, on_delete=models.CASCADE)
+    env = models.ForeignKey(Environment, on_delete=models.CASCADE)
+    site = models.ForeignKey(Website, on_delete=models.CASCADE)
     url = models.URLField(verbose_name='网站链接')

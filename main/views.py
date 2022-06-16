@@ -15,9 +15,3 @@ class MenuView(viewsets.ModelViewSet):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
 
-
-def index_view(request):
-    menus = Menu.objects.all().order_by('-weight')
-    websites = Website.objects.all().order_by('-weight')
-
-    return render(request, 'index.html', {"menus": menus, "websites": websites})

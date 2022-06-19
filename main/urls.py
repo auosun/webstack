@@ -1,17 +1,17 @@
 from django.urls import path
 
-from main.views import WebSiteView, MenuView
+from main.views import SiteViewSet, SiteGroupViewSet
 
-website_list = WebSiteView.as_view({
+site_list = SiteViewSet.as_view({
     'get': 'list'
 })
 
-menu_list = MenuView.as_view({
+group_list = SiteGroupViewSet.as_view({
     'get': 'list'
 })
 
 
 urlpatterns = [
-    path('', website_list),
-    path('menu/', menu_list)
+    path('', site_list),
+    path('menu/', group_list)
 ]

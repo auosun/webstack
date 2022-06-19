@@ -1,15 +1,14 @@
 from rest_framework import viewsets
 
-from main.models import Menu, Website
-from main.serializers import WebSiteSerializer, MenuSerializer
+from main.models import SiteGroup, Site
+from main.serializers import SiteSerializer, SiteGroupSerializer
 
 
-class WebSiteView(viewsets.ReadOnlyModelViewSet):
-    queryset = Website.objects.all()
-    serializer_class = WebSiteSerializer
+class SiteViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Site.objects.all()
+    serializer_class = SiteSerializer
 
 
-class MenuView(viewsets.ModelViewSet):
-    queryset = Menu.objects.all()
-    serializer_class = MenuSerializer
-
+class SiteGroupViewSet(viewsets.ModelViewSet):
+    queryset = SiteGroup.objects.all()
+    serializer_class = SiteGroupSerializer

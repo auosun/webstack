@@ -1,18 +1,26 @@
 from django.contrib import admin
 
-from .models import Menu, Website
+from .models import Environment, EnvWebsite, Site, SiteGroup
 
 
-class MenuAdmin(admin.ModelAdmin):
+@admin.register(SiteGroup)
+class SiteGroupAdmin(admin.ModelAdmin):
     list_display = ('name', 'icon', 'weight')
     list_editable = ['icon', 'weight']
 
 
-class WebsiteAdmin(admin.ModelAdmin):
-    list_filter = ['menu']
-    list_display = ('name', 'description', 'url', 'weight', 'menu')
-    list_editable = ['description', 'url', 'weight', 'menu']
+@admin.register(Site)
+class SiteAdmin(admin.ModelAdmin):
+    list_filter = ['group']
+    list_display = ('name', 'description', 'url', 'weight', 'group')
+    list_editable = ['description', 'url', 'weight', 'group']
 
 
-admin.site.register(Menu, MenuAdmin)
-admin.site.register(Website, WebsiteAdmin)
+@admin.register(Environment)
+class EnvironmentAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(EnvWebsite)
+class EnvSiteAdmin(admin.ModelAdmin):
+    list_display = ('env', 'site', 'url')

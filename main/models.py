@@ -57,6 +57,3 @@ class EnvWebsite(BaseModel):
     env = models.ForeignKey(Environment, on_delete=models.CASCADE)
     site = models.ForeignKey(Site, on_delete=models.CASCADE)
     url = models.URLField(verbose_name='链接')
-
-    def __str__(self):
-        return self.url

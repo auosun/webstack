@@ -18,7 +18,7 @@ class SiteAdmin(admin.ModelAdmin):
 
 @admin.register(Environment)
 class EnvironmentAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'name')
 
 
 @admin.register(EnvWebsite)

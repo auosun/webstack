@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from main.models import SiteGroup, Site
-from main.serializers import SiteSerializer, SiteGroupSerializer
+from main.models import SiteGroup, Site, Environment
+from main.serializers import SiteSerializer, SiteGroupSerializer, EnvironmentSerializer
 
 
 class SiteViewSet(viewsets.ReadOnlyModelViewSet):
@@ -12,3 +12,8 @@ class SiteViewSet(viewsets.ReadOnlyModelViewSet):
 class SiteGroupViewSet(viewsets.ModelViewSet):
     queryset = SiteGroup.objects.all()
     serializer_class = SiteGroupSerializer
+
+
+class EnvViewSet(viewsets.ModelViewSet):
+    queryset = Environment.objects.all()
+    serializer_class = EnvironmentSerializer

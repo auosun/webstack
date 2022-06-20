@@ -1,7 +1,7 @@
 from django.db import models
 from rest_framework import serializers
 
-from main.models import EnvWebsite, Site, SiteGroup
+from main.models import EnvWebsite, Site, SiteGroup, Environment
 
 
 class SiteListSerializer(serializers.ListSerializer):
@@ -40,3 +40,9 @@ class SiteGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = SiteGroup
         fields = "__all__"
+
+
+class EnvironmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Environment
+        exclude = ('status', )

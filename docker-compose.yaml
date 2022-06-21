@@ -7,7 +7,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    devices:
+    volumes:
       - ./static:/app/api/static
     ports:
       - "8000:8000"

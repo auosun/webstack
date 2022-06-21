@@ -10,17 +10,17 @@ services:
     volumes:
       - ./static:/app/api/static
     environment:
-      - DB_NAME="webstack"
-      - DB_USER="root"
-      - DB_PASSWORD="root"
-      - DB_HOST="127.0.0.1"
-      - DB_PORT="3306"
+      - DB_NAME=webstack
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_HOST=127.0.0.1
+      - DB_PORT=3306
     ports:
       - "8000:8000"
 
   frontend:
     restart: always
-    command: npm start
+    command: serve -s build
     container_name: webstack_frontend
     build:
       context: ./frontend/

@@ -13,4 +13,4 @@ RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 RUN python manage.py collectstatic --noinput
 RUN cp -r ./static /app/web/
 EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["sh", "-c", "cp -r /app/web/* /app/www/ && python manage.py runserver 0.0.0.0:8000"]

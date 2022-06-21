@@ -5,7 +5,7 @@ services:
     restart: always
     container_name: webstack
     volumes:
-      - <website_dir>:/app/web/
+      - <website_dir>:/app/www/
     environment:
       - DB_NAME=webstack
       - DB_USER=root

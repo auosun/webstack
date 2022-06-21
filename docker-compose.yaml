@@ -1,14 +1,11 @@
 version: "3.2"
 services:
   webstack:
+    image: webstack:latest
     restart: always
-    container_name: webstack_backend
-    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    container_name: webstack
     volumes:
-      - ./static:/app/api/static
+      - <website_dir>:/app/web/
     environment:
       - DB_NAME=webstack
       - DB_USER=root
@@ -17,16 +14,3 @@ services:
       - DB_PORT=3306
     ports:
       - "8000:8000"
-
-  frontend:
-    restart: always
-    command: serve -s build
-    container_name: webstack_frontend
-    build:
-      context: ./frontend/
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    stdin_open: true
-    depends_on:
-      - webstack

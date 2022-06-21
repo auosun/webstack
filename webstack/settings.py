@@ -60,7 +60,9 @@ CORS_ALLOWED_ORIGINS = [
 
 ROOT_URLCONF = 'webstack.urls'
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
+
+STATIC_ROOT = 'static'
 
 TEMPLATES = [
     {

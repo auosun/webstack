@@ -2,86 +2,41 @@
 
 > 一款基于 Django 和 [WebStackPage](https://github.com/WebStackPage/WebStackPage.github.io) 网站导航系统
 
-## Future
+![](https://aupicgo.oss-cn-shanghai.aliyuncs.com/img/202206261902482.png)
 
-1. WebStack页面 可配置
-2. 优化Django-Admin显示
-3. 添加 about page
+## 特性
 
-## Installation
+1. WebStack页面，可配置  
+2. 前后端分离，便于协作开发更多新功能
+3. 网站导航增加环境变量，能够根据不同环境自动转换网络地址
 
-克隆代码：  
-```
-git clone https://github.com/auosun/django_webstack.git
-```
+## 待发布版本 1.0 
 
-### Docker 
-> 基于 Docker Django 官方镜像构建
+版本 1.0 开发周期为 3个月  
+开发时间：  
+2022.06.23 - 2022.09.23
 
-构建镜像方法：
-```
-# 主目录运行
-docker build -t django_webstack .
-```
+### 前端
 
-拉取镜像:
-```
-docker pull pikaczy/django_webstack
-```
+- [x] 拆分前端界面，使用React进行简单重建，能够使用导航站基础功能 2022.06.24
+- [x] 增加环境切换按钮，并使用该按钮能够快速切换导航站收录站点的网络地址 2022.6.26
+- [ ] 设计开发快速录入页面
+- [ ] 将WebStack使用React重新构建以支撑后期新功能的开发
+- [ ] 开发管理界面替代django-admin
 
-使用本地Django代码运行镜像:
-```
-docker run --name django_webstack -v <Django代码目录>:/usr/src/app -w /usr/src/app -p 8000:8000 -d pikaczy/django_webstack
-```
-或  
+### 后端
 
-直接运行镜像:
-```
-docker run --name django_webstack -p 8000:8000 -d pikaczy/django_webstack
-```
+- [x] 使用 django + django-rest-framework 构建站点导航功能 2022.06.23
+- [x] 开发环境功能，能够在查询站点列表时通过环境参数获取不同的网站链接 2022.06.24
+- [ ] 开发快速录入功能，能够快速录入站点
+- [ ] 使用jwt替代django用户认证系统
+- [ ] 构建后台管理系统 替代django-admin
 
-进入容器:
-```
-docker exec -it django_webstack /bin/bash
-> python manage.py makemigrations webstack
-> python manage.py migrate 
-> python manage.py createsuperuser #创建管理员用户
-> exit #退出容器
-```
+## 版本 2.0
 
-重启服务:
-```
-$ docker restart django_webstack
-```
+### 特性
 
-更新:
-- 使用本地django代码
-```
-$ cd <Django代码目录>
-$ git pull
-$ docker restart django_webstack
-```
-- 直接使用容器代码
-```
-$ docker cp <container-id>:/usr/src/app/db.sqlite3 .
-$ docker pull pikaczy/django_webstack:latest
-$ docker stop <container-id>
-$ docker rm <container-id>
-# 重新启动容器
-# docker cp db.sqlite3 <container-id>:/usr/src/app/ 
-# 重启容器
-```
-
-## Usage
-主页: ```http://localhost:8000```  
-
-管理员界面: ```http://localhost:8000/admin```  
-
-分组和站点排序：以权重参数降序排列
-
-## Update record
-01/10/2020 22:48 添加管理员list界面可编辑功能
-12/06/2022 19:50 重构项目 准备重新启航 
+1. 使用无障碍重新开发前端界面 能够帮助阅读障碍人群通过导航获取到自己想要的信息
 
 ## Thanks
 前端设计：[**WebStackPage**](https://github.com/WebStackPage/WebStackPage.github.io)

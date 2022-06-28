@@ -2,7 +2,9 @@
 
 > 一款基于 Django 和 [WebStackPage](https://github.com/WebStackPage/WebStackPage.github.io) 网站导航系统
 
-![](https://aupicgo.oss-cn-shanghai.aliyuncs.com/img/202206261902482.png)
+![](https://aupicgo.oss-cn-shanghai.aliyuncs.com/img/202206261902482.png)  
+
+[Project Management Kanban](https://wekan.jzy.pub/b/xGTmLaEDTF9p3axAr/webstack)
 
 ## 特性
 

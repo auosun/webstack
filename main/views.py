@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 
 from main.models import SiteGroup, Site, Environment
 from main.serializers import SiteSerializer, SiteGroupSerializer, EnvironmentSerializer
@@ -7,6 +7,9 @@ from main.serializers import SiteSerializer, SiteGroupSerializer, EnvironmentSer
 class SiteViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Site.objects.all()
     serializer_class = SiteSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = ['weight', ]
+    ordering = ['-weight']
 
 
 class SiteGroupViewSet(viewsets.ModelViewSet):

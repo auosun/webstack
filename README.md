@@ -4,7 +4,7 @@
 
 ![](https://aupicgo.oss-cn-shanghai.aliyuncs.com/img/202206261902482.png)  
 
-[Project Management Kanban](https://wekan.jzy.pub/b/xGTmLaEDTF9p3axAr/webstack)
+[Demo](https://nav.jzy.pub) | [Project Management Kanban](https://wekan.jzy.pub/b/xGTmLaEDTF9p3axAr/webstack)
 
 ## 特性
 
